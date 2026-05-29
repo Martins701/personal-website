@@ -112,7 +112,7 @@ const Hero = () => {
           </div>
          <div className="flex items-center gap-5">
           {[
-            { icon: <GithubIcon />, label: "GitHub", href: "https://github.com/" },
+            { icon: <GithubIcon />, label: "GitHub", href: "https://github.com/Martins701" },
             { icon: <LinkedinIcon />, label: "LinkedIn", href: "https://www.linkedin.com/in/martins-nwachukwu-a23877344/" },
             { icon: <TwitterIcon />, label: "Twitter", href: "https://x.com/MartinsNwa35199" },
            // { icon: <MailIcon />, label: "Email", href: "mailto:martinsnwachukwu2024@gmail.com" },
