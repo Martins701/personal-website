@@ -4,6 +4,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FullPage from './pages/FullPage'
+import ProjectDetail from './pages/ProjectDetail'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
           <Routes>
             <Route path="/" element={<FullPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
           </Routes>
         <Footer />
     </BrowserRouter>

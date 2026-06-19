@@ -1,6 +1,5 @@
-import QuickConsult from "../assets/QuickConsult.png";
-import SpringCore from "../assets/SpringCore.png";
-import Haraf from "../assets/Haraf.png";
+import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
 const ExternalLinkIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
     <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -19,39 +18,6 @@ const ArrowRight = () => (
   </svg>
 );
 
-const projects = [
-  {
-    title: "SpringCore Africa",
-    description: "A website i built for the tech company i served as a frontend developer intern.",
-    tags: ["React", "Tailwind CSS", "JavaScript"],
-    image: SpringCore,
-    imageBg: "bg-gradient-to-br from-slate-100 to-blue-50",
-    // Placeholder UI mockup — light theme task manager
-    mockup: "light",
-    liveDemo: "#",
-    sourceCode: "#",
-  },
-  {
-    title: "Haraf",
-    description: "NGO platform for humanitarian aid and community development across Africa. Features donation management, volunteer coordination, and impact tracking.",
-    tags: ["React", "JavaScript", "Tailwind CSS", "Firebase"],
-    image: Haraf,
-    imageBg: "bg-gray-900",
-    mockup: "dark",
-    liveDemo: "#",
-    sourceCode: "#",
-  },
-  {
-    title: "QuickConsult",
-    description: "Telemedicine platform for remote consultations & prescriptions with video calls, e-prescriptions, and medical records.",
-    tags: ["React", "JavaScript", "Tailwind CSS"],
-    image: QuickConsult,
-    imageBg: "bg-gradient-to-br from-orange-50 to-slate-100",
-    mockup: "blog",
-    liveDemo: "#",
-    sourceCode: "#",
-  },
-];
 
 // Simple SVG mockup illustrations per project type
 const Mockup = ({ type }) => {
@@ -146,7 +112,7 @@ const Mockup = ({ type }) => {
   );
 };
 
-const ProjectCard = ({ title, description, tags, mockup, image, imageBg, liveDemo, sourceCode }) => (
+const ProjectCard = ({ title, description, tags, mockup, image, imageBg, slug, liveDemo, sourceCode }) => (
   <div className="flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
     {/* Image / mockup area */}
     <div className={`w-full h-48 sm:h-52 ${imageBg} overflow-hidden flex items-center justify-center`}>
@@ -161,9 +127,9 @@ const ProjectCard = ({ title, description, tags, mockup, image, imageBg, liveDem
       {/* Title + external link */}
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-bold text-gray-900">{title}</h3>
-        <a href={liveDemo} aria-label={`Open ${title}`} className="text-gray-400 hover:text-blue-600 transition-colors duration-200">
+        <Link to={`/projects/${slug}`} aria-label={`Open ${title}`} className="text-gray-400 hover:text-blue-600 transition-colors duration-200">
           <ExternalLinkIcon />
-        </a>
+        </Link>
       </div>
 
       {/* Description */}
@@ -185,12 +151,16 @@ const ProjectCard = ({ title, description, tags, mockup, image, imageBg, liveDem
       <div className="flex items-center gap-3 mt-auto pt-1">
         <a
           href={liveDemo}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 border border-gray-200 hover:border-blue-500 hover:text-blue-600 text-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200"
         >
           Live Demo <ExternalLinkIcon />
         </a>
         <a
           href={sourceCode}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 border border-gray-200 hover:border-gray-400 text-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200"
         >
           Source Code <GithubIcon />
